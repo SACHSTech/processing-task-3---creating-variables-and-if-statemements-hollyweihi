@@ -1,36 +1,41 @@
+import java.time.LocalDateTime;
+
 import processing.core.PApplet;
 
 public class Sketch extends PApplet {
-	
-	
-  /**
-   * Called once at the beginning of execution, put your size all in this method
-   */
   public void settings() {
-	// put your size call here
-    size(400, 400);
+    size(300, 300);
   }
 
-  /** 
-   * Called once at the beginning of execution.  Add initial set up
-   * values here i.e background, stroke, fill etc.
-   */
   public void setup() {
-    background(210, 255, 173);
-  }
-
-  /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
-  public void draw() {
-	  
-	// sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);  
-
-    stroke(255);
-    line(50, 125, 70, 50);  
-  }
+    background(0, 200, 0);
+    float flowerX = 15;
+    float flowerY = 15;
+    float petalSize = 10;
+    float petalDistance = petalSize/2;
+    
+    boolean change1 = flowerX >= 20;
+      if(change1) {
+        background(230, 230, 41);
+    boolean change2 = flowerX <= 20;
+      if(change2) 
+        background(51, 153, 255);
+      }
   
-  // define other methods down here.
+    fill(255, 128,  0);
+    ellipse(flowerX - petalDistance, flowerY - petalDistance,
+            petalSize, petalSize);
+    ellipse(flowerX + petalDistance, flowerY - petalDistance,
+            petalSize, petalSize);
+    ellipse(flowerX + petalDistance, flowerY + petalDistance,
+            petalSize, petalSize);
+    ellipse(flowerX - petalDistance, flowerY + petalDistance,
+            petalSize, petalSize);
+    
+    fill(255, 0, 0);
+    ellipse(flowerX, flowerY,
+            petalSize, petalSize);
+
+  System.out.println("The current time is " + hour() + ":" + minute());
+  }
 }
